@@ -6,14 +6,24 @@
 '''
 
 #n = 13195
-import math
-def issimple(a):
-    r=math.ceil(math.sqrt(a))
-    lst=[]
-    for i in range(3,r):
-        if a%i==0:
-            if issimple(i)==[]:
-                lst.append(i)
-    return lst
-r=issimple(600851475143)
-print(max(r))
+def is_prime(n):
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+
+def largest_prime(n):
+    if type(n) != int:
+        return 'Input must be Integer'
+    elif n < 0:
+        return 'Number must be positive'
+    factors = list()
+    for i in range(2, int(n**0.5)):
+        if n % i == 0:
+            if is_prime(i):
+                factors.append(i)
+    return max(factors)
+
+
+print(largest_prime(600851475143))

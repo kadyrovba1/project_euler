@@ -2,17 +2,12 @@
 
 Найдите самый большой палиндром, полученный умножением двух трехзначных чисел.'''
 
-def is_polindrom(num):
-    raw=str(num)
-    r_num=int(raw[::-1])
-    if num==r_num:
-        return True
-    else:
-        return False
-
-pol=[]
-for i in range(100,1000):
-    for j in range(100,1000):
-        if is_polindrom(i*j)==True:
-            pol.append(i*j)
-print(max(pol))
+n = 0
+for a in range(999, 100, -1):
+    for b in range(a, 100, -1):
+        x = a * b
+        if x > n:
+            s = str(a * b)
+            if s == s[::-1]:
+                n = a * b
+print(n)

@@ -4,13 +4,18 @@
 Найдите сумму всех простых чисел меньше двух миллионов.
 
 '''
+def sum_primes(n):
+    if type(n) != int:
+        return 'Input must be Integer'
+    elif n < 0:
+        return 'Number must be positive'
+    result, cell = 0, [True] * n
+    for p in range(2, n):
+        if cell[p]:
+            result += p
+            for i in range(p*p, n, p):
+                cell[i] = False
+    return result
 
-def simple_sum(n):
-    num_list = list(range(n))
-    num_list[1] = 0 
-    for i in num_list[2:]:
-            for j in range(i + i, len(num_list), i):
-                num_list[j] = 0
-    return num_list
 
-print(sum(simple_sum(2000000)))
+print(sum_primes(2000000))

@@ -3,21 +3,19 @@
 Какое самое маленькое число делится нацело на все числа от 1 до 20?
 
 '''
-limit = 20
+def divisible(n):
+    for i in range(1, 20):
+        if n % i != 0:
+            return False
+    return True
 
-# Получить список уникальных делителей
-divisors = [d for d in range(1 + limit // 2, limit)]
-print(divisors)
 
-n = limit * 2
-while True:
-    ok = True
-    for d in divisors:
-        if n % d != 0:
-            ok = False
-            break
-    if ok:
-        break
-    else:
-        n += limit
-print(n)
+def smallest():
+    n = 2520
+    while True:
+        if divisible(n):
+            return n
+        n += 20
+
+
+print(smallest())

@@ -1,11 +1,18 @@
+def fib(num):
+    if type(num) != int:
+        return 'Input must be Integer'
+    elif num < 0:
+        return 'Number must be positive'
+    x = 1
+    y = 1
+    z = 0
+    result = 0
+    while z < num:
+        z = (x + y)
+        if z % 2 == 0:
+            result += z
+        x, y = y, z
+    return result
 
-n1 = 1
-n2 = 2
-s = 0
-while n2 <= 4000000:
-    if n2 % 2 == 0:
-        s += n2
-    temp = n1 + n2
-    n1 = n2
-    n2 = temp
-print(s)
+
+print(fib(4000000))

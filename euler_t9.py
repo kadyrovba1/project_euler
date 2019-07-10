@@ -6,10 +6,11 @@
 Найти произведение abc.
 '''
 
-for n in range(500):
-    for m in range(n + 1, 500):
-        if m * (m + n) == 500:
-            a = m ** 2 - n ** 2
-            b = 2 * m * n
-            c = m ** 2 + n ** 2
-            print(a * b * c)
+import math
+
+def triplet():
+    for i in range(4, 1000):
+        for j in range(5, 1000):
+            c = pow(i,2) + pow(j,2)
+            if math.sqrt(c) - int(math.sqrt(c)) == 0:
+                return str(i) + ' ' + str(j) + ' ' + str(int(math.sqrt(c)))
